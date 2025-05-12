@@ -180,7 +180,7 @@
             this.numericUpDown.Size = new System.Drawing.Size(62, 20);
             this.numericUpDown.TabIndex = 12;
             this.numericUpDown.Value = new decimal(new int[] {
-            30,
+            15,
             0,
             0,
             0});
@@ -211,7 +211,7 @@
             this.MaximizeBox = false;
             this.Name = "Watermarker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UkeZebrano\'s Watermarker (v. 1.0)";
+            this.Text = "UkeZebrano\'s Watermarker (v. 1.1)";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SourceImg_pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WatermarkImg_pictureBox)).EndInit();

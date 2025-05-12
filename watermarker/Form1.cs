@@ -12,7 +12,7 @@ namespace watermarker
         private Bitmap LoadImg;
         private Bitmap WatermarkImg;
         private Bitmap SaveImg;
-        private float WatermarkAngle = (float)30;
+        private float WatermarkAngle = (float)15;
 
         public Watermarker()
         {
@@ -97,12 +97,21 @@ namespace watermarker
 
             var graphics = Graphics.FromImage(LoadImg);
             graphics.RotateTransform(WatermarkAngle);
-            int x = WatermarkImg.Width / 2;
-            int y = 0;
+            int y = -LoadImg.Height;
+            int x;
+            int even = 0;
 
-            while (x < LoadImg.Width) {
-                graphics.DrawImage(WatermarkImg, x, y, WatermarkImg.Width, WatermarkImg.Height);
-                x += WatermarkImg.Width + WatermarkImg.Width / 2;
+            while (y < LoadImg.Height * 2) {
+                x = 0;
+                if (even % 2 == 0)
+                    x += WatermarkImg.Width;
+                while (x < LoadImg.Width * 2)
+                {
+                    graphics.DrawImage(WatermarkImg, x, y, WatermarkImg.Width, WatermarkImg.Height);
+                    x += WatermarkImg.Width + WatermarkImg.Width;
+                }
+                y += WatermarkImg.Height + WatermarkImg.Height / 3;
+                even++;
             }
 
             SaveImg = new Bitmap(LoadImg.Width, LoadImg.Height, graphics);
